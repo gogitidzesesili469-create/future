@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f6">
+  <title>MY GLOW UP | My Personal Life Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="brand-logo">MY <span>GLOW UP</span> ✿</div>
+    <p class="muted">Your personal space to grow.</p>
+    <h2 id="authTitle">Welcome to your world 🌷</h2>
+    <p id="authDescription">შექმენი შენი პირადი ანგარიში</p>
+
+    <form id="authForm">
+      <input id="authName" placeholder="შენი სახელი" class="auth-name">
+      <input id="authEmail" type="email" placeholder="ელფოსტა" required>
+      <input id="authPassword" type="password" placeholder="პაროლი (მინიმუმ 8 სიმბოლო)" minlength="8" required>
+      <button class="primary-btn full" id="authSubmit">ანგარიშის შექმნა</button>
+    </form>
+
+    <p class="auth-switch">
+      უკვე გაქვს ანგარიში?
+      <button id="authToggle" class="text-btn">შესვლა</button>
+    </p>
+    <p class="tiny muted">შენი მონაცემები პირადია. გამოიყენე ძლიერი პაროლი.</p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-logo">MY <span>GLOW UP</span> ✿</div>
+    <p class="sidebar-caption">YOUR PERSONAL WORLD</p>
+
+    <nav id="mainNav">
+      <button class="nav-item active" data-page="dashboard">
+        <i class="fa-solid fa-house"></i> მთავარი გვერდი
+      </button>
+      <button class="nav-item" data-page="ai">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> AI ასისტენტი
+        <span class="new-tag">AI</span>
+      </button>
+      <button class="nav-item" data-page="profile">
+        <i class="fa-regular fa-user"></i> ჩემი პროფილი
+      </button>
+
+      <div class="nav-heading">MY DAILY LIFE</div>
+      <button class="nav-item" data-page="routine"><i class="fa-regular fa-calendar"></i> Daily Routine</button>
+      <button class="nav-item" data-page="goals"><i class="fa-solid fa-bullseye"></i> ჩემი მიზნები</button>
+      <button class="nav-item" data-page="challenges"><i class="fa-solid fa-fire"></i> 30 Days Challenges</button>
+      <button class="nav-item" data-page="focus"><i class="fa-regular fa-clock"></i> Focus Room</button>
+      <button class="nav-item" data-page="diary"><i class="fa-solid fa-book-open"></i> ჩემი დღიური</button>
+      <button class="nav-item" data-page="reflection"><i class="fa-regular fa-calendar-check"></i> Monthly Reflection</button>
+
+      <div class="nav-heading">SELF DEVELOPMENT</div>
+      <button class="nav-item" data-page="fashion"><i class="fa-solid fa-shirt"></i> Fashion & Style</button>
+      <button class="nav-item" data-page="closet"><i class="fa-solid fa-hanger"></i> Digital Closet</button>
+      <button class="nav-item" data-page="beauty"><i class="fa-solid fa-spa"></i> Beauty & Self-care</button>
+      <button class="nav-item" data-page="fitness"><i class="fa-solid fa-leaf"></i> Healthy Lifestyle</button>
+      <button class="nav-item" data-page="mindset"><i class="fa-solid fa-brain"></i> Mindset & Wellness</button>
+      <button class="nav-item" data-page="social"><i class="fa-solid fa-comments"></i> Social Skills</button>
+      <button class="nav-item" data-page="discover"><i class="fa-solid fa-heart"></i> Discover Yourself</button>
+
+      <div class="nav-heading">LEARNING & FUTURE</div>
+      <button class="nav-item" data-page="study"><i class="fa-solid fa-graduation-cap"></i> Study Assistant</button>
+      <button class="nav-item" data-page="english"><i class="fa-solid fa-language"></i> English Corner</button>
+      <button class="nav-item" data-page="reading"><i class="fa-solid fa-book"></i> Reading Corner</button>
+      <button class="nav-item" data-page="career"><i class="fa-solid fa-briefcase"></i> Career & Future</button>
+      <button class="nav-item" data-page="finance"><i class="fa-solid fa-coins"></i> Financial Literacy</button>
+
+      <div class="nav-heading">MY DREAM LIFE</div>
+      <button class="nav-item" data-page="vision"><i class="fa-solid fa-rainbow"></i> Vision Board</button>
+      <button class="nav-item" data-page="achievements"><i class="fa-solid fa-trophy"></i> Achievements</button>
+      <button class="nav-item" data-page="future"><i class="fa-regular fa-envelope"></i> Letter to Future Me</button>
+      <button class="nav-item" data-page="recipes"><i class="fa-solid fa-bowl-food"></i> Healthy Recipes</button>
+
+      <div class="nav-heading">SETTINGS</div>
+      <button class="nav-item" data-page="settings"><i class="fa-solid fa-gear"></i> პარამეტრები</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="mini-profile">
+        <div class="avatar" id="sideAvatar">✿</div>
+        <div>
+          <strong id="sideName">My Profile</strong>
+          <small>Personal account</small>
+        </div>
+        <button id="logoutBtn" title="გასვლა"><i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button id="menuToggle" class="icon-btn mobile-only"><i class="fa-solid fa-bars"></i></button>
+      <div>
+        <span class="muted small">YOUR PERSONAL DEVELOPMENT SPACE</span>
+        <div class="top-date" id="todayDate"></div>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="themeToggle" title="რეჟიმის შეცვლა"><i class="fa-solid fa-moon"></i></button>
+        <button class="icon-btn" data-goto="profile"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </header>
+
+    <div id="pageContent" class="page-content">
+
+      <section id="dashboardPage" class="page">
+        <div class="welcome-banner">
+          <div>
+            <span class="eyebrow">A NEW DAY, A NEW OPPORTUNITY ✨</span>
+            <h1>Welcome back, <span id="welcomeName">beautiful soul</span>!</h1>
+            <p>პატარა ნაბიჯებიც დიდ ცვლილებებს ქმნის. დღეს შენს განვითარებას დაუთმე დრო.</p>
+            <button class="primary-btn" data-goto="routine">დავიწყოთ დღე <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div class="welcome-art">🌷</div>
+        </div>
+
+        <div class="section-heading">
+          <div><h2>My Life Dashboard</h2><p>შენი დღევანდელი ცხოვრება ერთ სივრცეში.</p></div>
+          <span class="soft-label">MY PERSONAL SPACE</span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>ჩემი მიზნები</span><strong id="goalCount">0</strong><i class="fa-solid fa-bullseye"></i></div>
+          <div class="stat-card"><span>შესრულებული დავალებები</span><strong id="taskCount">0</strong><i class="fa-solid fa-check"></i></div>
+          <div class="stat-card"><span>ჩემი ჩანაწერები</span><strong id="diaryCount">0</strong><i class="fa-solid fa-book"></i></div>
+          <div class="stat-card"><span>მიღწევები</span><strong id="achievementCount">0</strong><i class="fa-solid fa-star"></i></div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="panel">
+            <div class="panel-title"><h3>Today's Plan ☀️</h3><button class="text-btn" data-goto="routine">ყველა</button></div>
+            <div id="todayTasks" class="task-list"></div>
+            <button class="outline-btn full" data-goto="routine">+ ახალი დავალება</button>
+          </div>
+          <div class="panel">
+            <div class="panel-title"><h3>My Goals 🎯</h3><button class="text-btn" data-goto="goals">ნახვა</button></div>
+            <div id="dashboardGoals"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-title"><h3>Daily Questions 🌸</h3></div>
+            <p id="dailyQuestion" class="question-text">რა არის ერთი კარგი რამ, რაც დღეს შეგიძლია გააკეთო საკუთარი თავისთვის?</p>
+            <textarea id="dailyAnswer" placeholder="ჩაწერე შენი პასუხი..."></textarea>
+            <button class="primary-btn full" id="saveDailyAnswer">პასუხის შენახვა</button>
+          </div>
+          <div class="panel">
+            <div class="panel-title"><h3>My Progress ✨</h3></div>
+            <div class="progress-circle"><span id="progressNumber">0%</span></div>
+            <p class="muted center">შენი მიზნების შესრულების პროგრესი</p>
+          </div>
+        </div>
+
+        <div class="quote-banner">
+          <span>“</span>
+          <p id="dailyQuote">Become the best version of yourself, one day at a time.</p>
+          <small>YOUR DAILY REMINDER</small>
+        </div>
+
+        <div class="panel ai-tip">
+          <div class="ai-icon">✧</div>
+          <div><h3>A little reminder from your AI Mentor</h3><p>არ არის აუცილებელი ყველაფერი ერთ დღეში გააკეთო. თანმიმდევრულობა უფრო მნიშვნელოვანია, ვიდრე სრულყოფილება.</p></div>
+          <button class="text-btn" data-goto="ai">ესაუბრე AI-ს →</button>
+        </div>
+      </section>
+
+      <section id="modulePage" class="page hidden">
+        <div class="section-heading">
+          <div><span class="eyebrow">MY PERSONAL SPACE</span><h1 id="moduleTitle">My Goals</h1><p id="moduleDescription"></p></div>
+          <span id="moduleIcon" class="module-icon">🌷</span>
+        </div>
+        <div id="moduleContent"></div>
+      </section>
+
+      <section id="aiPage" class="page hidden">
+        <div class="ai-header">
+          <span class="eyebrow">YOUR PERSONAL AI COMPANION</span>
+          <h1>Let's grow together. ✨</h1>
+          <p>შენი პირადი ასისტენტი, მასწავლებელი და განვითარების მენტორი.</p>
+        </div>
+        <div class="mode-grid" id="aiModes">
+          <button class="mode-card selected" data-mode="Daily Mentor">🌷<strong>Daily Mentor</strong><small>ყოველდღიური განვითარება</small></button>
+          <button class="mode-card" data-mode="Study Mentor">📚<strong>Study Mentor</strong><small>სწავლა და განათლება</small></button>
+          <button class="mode-card" data-mode="Fashion Assistant">👗<strong>Fashion Assistant</strong><small>სტილი და ჩაცმა</small></button>
+          <button class="mode-card" data-mode="Beauty Assistant">🧴<strong>Beauty Assistant</strong><small>თავის მოვლა</small></button>
+          <button class="mode-card" data-mode="Career Mentor">💼<strong>Career Mentor</strong><small>პროფესია და მომავალი</small></button>
+          <button class="mode-card" data-mode="Mental Wellness">💗<strong>Mental Wellness</strong><small>ემოციები და თვითშემეცნება</small></button>
+        </div>
+        <div class="chat-panel">
+          <div class="chat-top"><div class="ai-avatar">✧</div><div><strong>MY GLOW UP AI</strong><small id="currentMode">Daily Mentor</small></div><span class="online-dot"></span></div>
+          <div id="chatMessages" class="chat-messages">
+            <div class="message assistant">გამარჯობა! 🌷 მე შენი MY GLOW UP ასისტენტი ვარ. რაზე გინდა დღეს ვისაუბროთ?</div>
+          </div>
+          <form id="chatForm" class="chat-input">
+            <input id="chatInput" placeholder="მომწერე რაც გაინტერესებს..." required>
+            <button class="primary-btn" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <small class="muted chat-disclaimer">AI ზოგჯერ შეიძლება შეცდეს. მნიშვნელოვანი საკითხები გადაამოწმე სანდო ადამიანთან ან სპეციალისტთან.</small>
+        </div>
+      </section>
+
+    </div>
+    <footer>MY GLOW UP ✿ <span>Grow gently. Shine naturally.</span></footer>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
